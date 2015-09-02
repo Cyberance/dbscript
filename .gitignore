@@ -1,4 +1,9 @@
+--Script to create three tables:
+--[dbo].[Form1095] is  the main table
+--[dbo].[Form1095ALEMembers] contains information about the ALE members. Related to Form1095 table on EmployerId
+--[dbo].[Form1095Individuals] contains covered individual for employees. Related to Form1095 table on EmployeeId
 
+--These three tables contain all the necessary information and column names are self explanatory.
 GO
 /****** Object:  Table [dbo].[Form1095]    Script Date: 9/1/2015 10:06:21 PM ******/
 SET ANSI_NULLS ON
