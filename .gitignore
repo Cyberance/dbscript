@@ -1,0 +1,262 @@
+
+GO
+/****** Object:  Table [dbo].[Form1095]    Script Date: 9/1/2015 10:06:21 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Form1095](
+	[FormId] [int] IDENTITY(1,1) NOT NULL,
+	[FormType] [nvarchar](20) NOT NULL,
+	[FormStatus] [nchar](1) NULL,
+	[FormYear] [nvarchar](20) NULL,
+	[IsCorrected] [bit] NULL,
+	[IsVoid] [bit] NULL,
+	[Org_FormId] [int] NULL,
+	[UserId] [uniqueidentifier] NULL,
+	[EmployerId] [int] NULL,
+	[BusinessEIN] [nvarchar](20) NULL,
+	[BusinessNameLine1] [nvarchar](100) NULL,
+	[BusinessNameLine2] [varchar](100) NULL,
+	[AddressLine1] [nvarchar](100) NULL,
+	[AddressLine2] [nvarchar](100) NULL,
+	[CityNm] [nvarchar](60) NULL,
+	[USStateCd] [nchar](5) NULL,
+	[USZipCd] [nvarchar](10) NULL,
+	[USZiExtensionCd] [nvarchar](10) NULL,
+	[ForeignProvinceCd] [nvarchar](10) NULL,
+	[CountryCd] [nvarchar](10) NULL,
+	[CountryName] [nvarchar](10) NULL,
+	[ForeignPostalCd] [nvarchar](10) NULL,
+	[PersonFirstNm] [nvarchar](60) NULL,
+	[PersonMiddleNm] [nvarchar](60) NULL,
+	[PersonLastNm] [nvarchar](60) NULL,
+	[SuffixNm] [nvarchar](60) NULL,
+	[ContactPhoneNum] [nvarchar](20) NULL,
+	[IsGovEntity] [bit] NULL,
+	[Forms1095CAttachedCnt] [int] NULL,
+	[AuthoritativeTransmittalInd] [nvarchar](1) NULL,
+	[TotalForm195CALEMemberCnt] [int] NULL,
+	[AggregatedGroupMemberInd] [nvarchar](1) NULL,
+	[QualifiedOfferMethodind] [nvarchar](1) NULL,
+	[QlfyOfferMethodTrnstReliefInd] [nvarchar](1) NULL,
+	[Section4980HReliefInd] [nvarchar](1) NULL,
+	[NinetyEightPctOfferMethodInd] [nvarchar](1) NULL,
+	[JuratSignaturePIN] [nvarchar](10) NULL,
+	[PersonTitleTxt] [nvarchar](20) NULL,
+	[SignatureDt] [datetime] NULL,
+	[All12MinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[JanMinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[FebMinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[MarMinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[AprMinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[MayMinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[JunMinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[JulMinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[AugMinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[SepMinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[OctMinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[NovMinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[DecMinEssentialCvrOffrInd] [nvarchar](1) NULL,
+	[All12ALEMemberFTECnt] [int] NULL,
+	[JanALEMemberFTECnt] [int] NULL,
+	[FebALEMemberFTECnt] [int] NULL,
+	[MarALEMemberFTECnt] [int] NULL,
+	[AprALEMemberFTECnt] [int] NULL,
+	[MayALEMemberFTECnt] [int] NULL,
+	[JunALEMemberFTECnt] [int] NULL,
+	[JulALEMemberFTECnt] [int] NULL,
+	[AugALEMemberFTECnt] [int] NULL,
+	[SepALEMemberFTECnt] [int] NULL,
+	[OctALEMemberFTECnt] [int] NULL,
+	[NovALEMemberFTECnt] [int] NULL,
+	[DecALEMemberFTECnt] [int] NULL,
+	[All12TotalEmployeeCnt] [int] NULL,
+	[JanTotalEmployeeCnt] [int] NULL,
+	[FebTotalEmployeeCnt] [int] NULL,
+	[MarTotalEmployeeCnt] [int] NULL,
+	[AprTotalEmployeeCnt] [int] NULL,
+	[MayTotalEmployeeCnt] [int] NULL,
+	[JunTotalEmployeeCnt] [int] NULL,
+	[JulTotalEmployeeCnt] [int] NULL,
+	[AugTotalEmployeeCnt] [int] NULL,
+	[SepTotalEmployeeCnt] [int] NULL,
+	[OctTotalEmployeeCnt] [int] NULL,
+	[NovTotalEmployeeCnt] [int] NULL,
+	[DecTotalEmployeeCnt] [int] NULL,
+	[All12AggregatedGroupInd] [nvarchar](1) NULL,
+	[JanAggregatedGroupInd] [nvarchar](1) NULL,
+	[FebAggregatedGroupInd] [nvarchar](1) NULL,
+	[MarAggregatedGroupInd] [nvarchar](1) NULL,
+	[AprAggregatedGroupInd] [nvarchar](1) NULL,
+	[MayAggregatedGroupInd] [nvarchar](1) NULL,
+	[JunAggregatedGroupInd] [nvarchar](1) NULL,
+	[JulAggregatedGroupInd] [nvarchar](1) NULL,
+	[AugAggregatedGroupInd] [nvarchar](1) NULL,
+	[SepAggregatedGroupInd] [nvarchar](1) NULL,
+	[OctAggregatedGroupInd] [nvarchar](1) NULL,
+	[NovAggregatedGroupInd] [nvarchar](1) NULL,
+	[DecAggregatedGroupInd] [nvarchar](1) NULL,
+	[All12ALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[JanALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[FebALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[MarALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[AprALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[MayALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[JunALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[JulALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[AugALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[SepALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[OctALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[NovALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[DecALESect4980HTrnstReliefCd] [nvarchar](10) NULL,
+	[EmployeeId] [int] NULL,
+	[EmployeeFirstNm] [nvarchar](60) NULL,
+	[EmployeeMiddleNm] [nvarchar](60) NULL,
+	[EmployeeLastNm] [nvarchar](60) NULL,
+	[EmployeeSuffixNm] [nvarchar](60) NULL,
+	[EmployeePhoneNum] [nvarchar](20) NULL,
+	[EmployeeSSN] [nvarchar](20) NULL,
+	[EmployeeAddressLine1] [nvarchar](100) NULL,
+	[EmployeeAddressLine2] [nvarchar](100) NULL,
+	[EmployeeCityNm] [nvarchar](60) NULL,
+	[EmployeeUSStateCd] [nchar](5) NULL,
+	[EmployeeUSZipCd] [nvarchar](10) NULL,
+	[EmployeeUSZiExtensionCd] [nvarchar](10) NULL,
+	[EmployeeForeignProvinceCd] [nvarchar](10) NULL,
+	[EmployeeCountryCd] [nvarchar](10) NULL,
+	[EmployeeCountryName] [nvarchar](10) NULL,
+	[EmployeeForeignPostalCd] [nvarchar](10) NULL,
+	[AnnualOfferOfCoverageCd] [nvarchar](10) NULL,
+	[JanOfferCd] [nvarchar](10) NULL,
+	[FebOfferCd] [nvarchar](10) NULL,
+	[MarOfferCd] [nvarchar](10) NULL,
+	[AprOfferCd] [nvarchar](10) NULL,
+	[MayOfferCd] [nvarchar](10) NULL,
+	[JunOfferCd] [nvarchar](10) NULL,
+	[JulOfferCd] [nvarchar](10) NULL,
+	[AugOfferCd] [nvarchar](10) NULL,
+	[SepOfferCd] [nvarchar](10) NULL,
+	[OctOfferCd] [nvarchar](10) NULL,
+	[NovOfferCd] [nvarchar](10) NULL,
+	[DecOfferCd] [nvarchar](10) NULL,
+	[AnnualShrLowestCostMPremAmt] [money] NULL,
+	[JanMPremAmt] [money] NULL,
+	[FebMPremAmt] [money] NULL,
+	[MarMPremAmt] [money] NULL,
+	[AprMPremAmt] [money] NULL,
+	[MayMPremAmt] [money] NULL,
+	[JunMPremAmt] [money] NULL,
+	[JulMPremAmt] [money] NULL,
+	[AugMPremAmt] [money] NULL,
+	[SepMPremAmt] [money] NULL,
+	[OctMPremAmt] [money] NULL,
+	[NovMPremAmt] [money] NULL,
+	[DecMPremAmt] [money] NULL,
+	[AnnualSafeHarborCd] [nvarchar](10) NULL,
+	[JanSafeHarborCd] [nvarchar](10) NULL,
+	[FebSafeHarborCd] [nvarchar](10) NULL,
+	[MarSafeHarborCd] [nvarchar](10) NULL,
+	[AprSafeHarborCd] [nvarchar](10) NULL,
+	[MaySafeHarborCd] [nvarchar](10) NULL,
+	[JunSafeHarborCd] [nvarchar](10) NULL,
+	[JulSafeHarborCd] [nvarchar](10) NULL,
+	[AugSafeHarborCd] [nvarchar](10) NULL,
+	[SepSafeHarborCd] [nvarchar](10) NULL,
+	[OctSafeHarborCd] [nvarchar](10) NULL,
+	[NovSafeHarborCd] [nvarchar](10) NULL,
+	[DecSafeHarborCd] [nvarchar](10) NULL,
+	[CoveredIndividualInd] [nvarchar](1) NULL,
+	[CreateDate] [datetime] NULL,
+ CONSTRAINT [PK_Form1095] PRIMARY KEY CLUSTERED 
+(
+	[FormId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Form1095ALEMembers]    Script Date: 9/1/2015 10:06:22 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[Form1095ALEMembers](
+	[ALAMemberId] [int] IDENTITY(1,1) NOT NULL,
+	[EmployerId] [int] NOT NULL,
+	[UserId] [uniqueidentifier] NULL,
+	[BusinessEIN] [nvarchar](20) NULL,
+	[BusinessNameLine1] [nvarchar](100) NULL,
+	[BusinessNameLine2] [varchar](100) NULL,
+	[CreateDate] [datetime] NULL,
+	[IsActive] [bit] NULL,
+ CONSTRAINT [PK_Form1095ALEMembers] PRIMARY KEY CLUSTERED 
+(
+	[ALAMemberId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[Form1095Individuals]    Script Date: 9/1/2015 10:06:22 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Form1095Individuals](
+	[FormIndvidualId] [int] IDENTITY(1,1) NOT NULL,
+	[EmployeeId] [int] NOT NULL,
+	[UserId] [uniqueidentifier] NULL,
+	[IndFirstName] [nvarchar](100) NULL,
+	[IndMiddleName] [nvarchar](100) NULL,
+	[IndLastName] [nvarchar](100) NULL,
+	[IndSuffixName] [nvarchar](100) NULL,
+	[IndSSN] [nvarchar](20) NULL,
+	[IndBirthDate] [date] NULL,
+	[CoveredAnnual] [nvarchar](1) NULL,
+	[CoveredM1] [nvarchar](1) NULL,
+	[CoveredM2] [nvarchar](1) NULL,
+	[CoveredM3] [nvarchar](1) NULL,
+	[CoveredM4] [nvarchar](1) NULL,
+	[CoveredM5] [nvarchar](1) NULL,
+	[CoveredM6] [nvarchar](1) NULL,
+	[CoveredM7] [nvarchar](1) NULL,
+	[CoveredM8] [nvarchar](1) NULL,
+	[CoveredM9] [nvarchar](1) NULL,
+	[CoveredM10] [nvarchar](1) NULL,
+	[CoveredM11] [nvarchar](1) NULL,
+	[CoveredM12] [nvarchar](1) NULL,
+	[CreateDate] [datetime] NULL,
+ CONSTRAINT [PK_Form1095Individuals] PRIMARY KEY CLUSTERED 
+(
+	[FormIndvidualId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET IDENTITY_INSERT [dbo].[Form1095] ON 
+
+INSERT [dbo].[Form1095] ([FormId], [FormType], [FormStatus], [FormYear], [IsCorrected], [IsVoid], [Org_FormId], [UserId], [EmployerId], [BusinessEIN], [BusinessNameLine1], [BusinessNameLine2], [AddressLine1], [AddressLine2], [CityNm], [USStateCd], [USZipCd], [USZiExtensionCd], [ForeignProvinceCd], [CountryCd], [CountryName], [ForeignPostalCd], [PersonFirstNm], [PersonMiddleNm], [PersonLastNm], [SuffixNm], [ContactPhoneNum], [IsGovEntity], [Forms1095CAttachedCnt], [AuthoritativeTransmittalInd], [TotalForm195CALEMemberCnt], [AggregatedGroupMemberInd], [QualifiedOfferMethodind], [QlfyOfferMethodTrnstReliefInd], [Section4980HReliefInd], [NinetyEightPctOfferMethodInd], [JuratSignaturePIN], [PersonTitleTxt], [SignatureDt], [All12MinEssentialCvrOffrInd], [JanMinEssentialCvrOffrInd], [FebMinEssentialCvrOffrInd], [MarMinEssentialCvrOffrInd], [AprMinEssentialCvrOffrInd], [MayMinEssentialCvrOffrInd], [JunMinEssentialCvrOffrInd], [JulMinEssentialCvrOffrInd], [AugMinEssentialCvrOffrInd], [SepMinEssentialCvrOffrInd], [OctMinEssentialCvrOffrInd], [NovMinEssentialCvrOffrInd], [DecMinEssentialCvrOffrInd], [All12ALEMemberFTECnt], [JanALEMemberFTECnt], [FebALEMemberFTECnt], [MarALEMemberFTECnt], [AprALEMemberFTECnt], [MayALEMemberFTECnt], [JunALEMemberFTECnt], [JulALEMemberFTECnt], [AugALEMemberFTECnt], [SepALEMemberFTECnt], [OctALEMemberFTECnt], [NovALEMemberFTECnt], [DecALEMemberFTECnt], [All12TotalEmployeeCnt], [JanTotalEmployeeCnt], [FebTotalEmployeeCnt], [MarTotalEmployeeCnt], [AprTotalEmployeeCnt], [MayTotalEmployeeCnt], [JunTotalEmployeeCnt], [JulTotalEmployeeCnt], [AugTotalEmployeeCnt], [SepTotalEmployeeCnt], [OctTotalEmployeeCnt], [NovTotalEmployeeCnt], [DecTotalEmployeeCnt], [All12AggregatedGroupInd], [JanAggregatedGroupInd], [FebAggregatedGroupInd], [MarAggregatedGroupInd], [AprAggregatedGroupInd], [MayAggregatedGroupInd], [JunAggregatedGroupInd], [JulAggregatedGroupInd], [AugAggregatedGroupInd], [SepAggregatedGroupInd], [OctAggregatedGroupInd], [NovAggregatedGroupInd], [DecAggregatedGroupInd], [All12ALESect4980HTrnstReliefCd], [JanALESect4980HTrnstReliefCd], [FebALESect4980HTrnstReliefCd], [MarALESect4980HTrnstReliefCd], [AprALESect4980HTrnstReliefCd], [MayALESect4980HTrnstReliefCd], [JunALESect4980HTrnstReliefCd], [JulALESect4980HTrnstReliefCd], [AugALESect4980HTrnstReliefCd], [SepALESect4980HTrnstReliefCd], [OctALESect4980HTrnstReliefCd], [NovALESect4980HTrnstReliefCd], [DecALESect4980HTrnstReliefCd], [EmployeeId], [EmployeeFirstNm], [EmployeeMiddleNm], [EmployeeLastNm], [EmployeeSuffixNm], [EmployeePhoneNum], [EmployeeSSN], [EmployeeAddressLine1], [EmployeeAddressLine2], [EmployeeCityNm], [EmployeeUSStateCd], [EmployeeUSZipCd], [EmployeeUSZiExtensionCd], [EmployeeForeignProvinceCd], [EmployeeCountryCd], [EmployeeCountryName], [EmployeeForeignPostalCd], [AnnualOfferOfCoverageCd], [JanOfferCd], [FebOfferCd], [MarOfferCd], [AprOfferCd], [MayOfferCd], [JunOfferCd], [JulOfferCd], [AugOfferCd], [SepOfferCd], [OctOfferCd], [NovOfferCd], [DecOfferCd], [AnnualShrLowestCostMPremAmt], [JanMPremAmt], [FebMPremAmt], [MarMPremAmt], [AprMPremAmt], [MayMPremAmt], [JunMPremAmt], [JulMPremAmt], [AugMPremAmt], [SepMPremAmt], [OctMPremAmt], [NovMPremAmt], [DecMPremAmt], [AnnualSafeHarborCd], [JanSafeHarborCd], [FebSafeHarborCd], [MarSafeHarborCd], [AprSafeHarborCd], [MaySafeHarborCd], [JunSafeHarborCd], [JulSafeHarborCd], [AugSafeHarborCd], [SepSafeHarborCd], [OctSafeHarborCd], [NovSafeHarborCd], [DecSafeHarborCd], [CoveredIndividualInd], [CreateDate]) VALUES (1, N'1095-C', N'O', N'2014', NULL, NULL, NULL, N'4899f175-8c99-4c98-b486-93114f1c7304', 1, N'00-5234504', N'Amazon Information', NULL, N'6689 Willow Court', NULL, N'CA', NULL, N'90211', NULL, NULL, N'US', NULL, NULL, N'Rose', N'S.', N'Lincoln', NULL, N'555-987-6543', NULL, 3, N'Y', 455, N'Y', NULL, NULL, NULL, NULL, NULL, N'CEO', CAST(N'2015-01-29 00:00:00.000' AS DateTime), NULL, N'N', N'N', N'N', N'N', N'N', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', NULL, 312, 312, 315, 320, 322, 325, 329, 333, 341, 344, 361, 372, NULL, 351, 352, 358, 365, 369, 376, 372, 369, 366, 363, 377, 385, NULL, N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', NULL, NULL, NULL, NULL, NULL, NULL, N'B', N'B', N'B', N'B', N'B', N'B', N'B', 1, N'Teresa', N'L.', N'Grays', NULL, N'555-987-6543', N'400-00-1016', N'342 Ash Avenue', NULL, N'Seattle', N'WA   ', N'98104', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'1E', N'1E', N'1E', N'1E', N'1E', N'1E', N'1E', NULL, NULL, NULL, NULL, NULL, NULL, 139.0000, 139.0000, 139.0000, 139.0000, 139.0000, 139.0000, 139.0000, NULL, NULL, NULL, NULL, NULL, NULL, N'2F', N'2F', N'2F', N'2F', N'2F', N'2F', N'2F', NULL, CAST(N'2015-08-30 10:33:31.020' AS DateTime))
+INSERT [dbo].[Form1095] ([FormId], [FormType], [FormStatus], [FormYear], [IsCorrected], [IsVoid], [Org_FormId], [UserId], [EmployerId], [BusinessEIN], [BusinessNameLine1], [BusinessNameLine2], [AddressLine1], [AddressLine2], [CityNm], [USStateCd], [USZipCd], [USZiExtensionCd], [ForeignProvinceCd], [CountryCd], [CountryName], [ForeignPostalCd], [PersonFirstNm], [PersonMiddleNm], [PersonLastNm], [SuffixNm], [ContactPhoneNum], [IsGovEntity], [Forms1095CAttachedCnt], [AuthoritativeTransmittalInd], [TotalForm195CALEMemberCnt], [AggregatedGroupMemberInd], [QualifiedOfferMethodind], [QlfyOfferMethodTrnstReliefInd], [Section4980HReliefInd], [NinetyEightPctOfferMethodInd], [JuratSignaturePIN], [PersonTitleTxt], [SignatureDt], [All12MinEssentialCvrOffrInd], [JanMinEssentialCvrOffrInd], [FebMinEssentialCvrOffrInd], [MarMinEssentialCvrOffrInd], [AprMinEssentialCvrOffrInd], [MayMinEssentialCvrOffrInd], [JunMinEssentialCvrOffrInd], [JulMinEssentialCvrOffrInd], [AugMinEssentialCvrOffrInd], [SepMinEssentialCvrOffrInd], [OctMinEssentialCvrOffrInd], [NovMinEssentialCvrOffrInd], [DecMinEssentialCvrOffrInd], [All12ALEMemberFTECnt], [JanALEMemberFTECnt], [FebALEMemberFTECnt], [MarALEMemberFTECnt], [AprALEMemberFTECnt], [MayALEMemberFTECnt], [JunALEMemberFTECnt], [JulALEMemberFTECnt], [AugALEMemberFTECnt], [SepALEMemberFTECnt], [OctALEMemberFTECnt], [NovALEMemberFTECnt], [DecALEMemberFTECnt], [All12TotalEmployeeCnt], [JanTotalEmployeeCnt], [FebTotalEmployeeCnt], [MarTotalEmployeeCnt], [AprTotalEmployeeCnt], [MayTotalEmployeeCnt], [JunTotalEmployeeCnt], [JulTotalEmployeeCnt], [AugTotalEmployeeCnt], [SepTotalEmployeeCnt], [OctTotalEmployeeCnt], [NovTotalEmployeeCnt], [DecTotalEmployeeCnt], [All12AggregatedGroupInd], [JanAggregatedGroupInd], [FebAggregatedGroupInd], [MarAggregatedGroupInd], [AprAggregatedGroupInd], [MayAggregatedGroupInd], [JunAggregatedGroupInd], [JulAggregatedGroupInd], [AugAggregatedGroupInd], [SepAggregatedGroupInd], [OctAggregatedGroupInd], [NovAggregatedGroupInd], [DecAggregatedGroupInd], [All12ALESect4980HTrnstReliefCd], [JanALESect4980HTrnstReliefCd], [FebALESect4980HTrnstReliefCd], [MarALESect4980HTrnstReliefCd], [AprALESect4980HTrnstReliefCd], [MayALESect4980HTrnstReliefCd], [JunALESect4980HTrnstReliefCd], [JulALESect4980HTrnstReliefCd], [AugALESect4980HTrnstReliefCd], [SepALESect4980HTrnstReliefCd], [OctALESect4980HTrnstReliefCd], [NovALESect4980HTrnstReliefCd], [DecALESect4980HTrnstReliefCd], [EmployeeId], [EmployeeFirstNm], [EmployeeMiddleNm], [EmployeeLastNm], [EmployeeSuffixNm], [EmployeePhoneNum], [EmployeeSSN], [EmployeeAddressLine1], [EmployeeAddressLine2], [EmployeeCityNm], [EmployeeUSStateCd], [EmployeeUSZipCd], [EmployeeUSZiExtensionCd], [EmployeeForeignProvinceCd], [EmployeeCountryCd], [EmployeeCountryName], [EmployeeForeignPostalCd], [AnnualOfferOfCoverageCd], [JanOfferCd], [FebOfferCd], [MarOfferCd], [AprOfferCd], [MayOfferCd], [JunOfferCd], [JulOfferCd], [AugOfferCd], [SepOfferCd], [OctOfferCd], [NovOfferCd], [DecOfferCd], [AnnualShrLowestCostMPremAmt], [JanMPremAmt], [FebMPremAmt], [MarMPremAmt], [AprMPremAmt], [MayMPremAmt], [JunMPremAmt], [JulMPremAmt], [AugMPremAmt], [SepMPremAmt], [OctMPremAmt], [NovMPremAmt], [DecMPremAmt], [AnnualSafeHarborCd], [JanSafeHarborCd], [FebSafeHarborCd], [MarSafeHarborCd], [AprSafeHarborCd], [MaySafeHarborCd], [JunSafeHarborCd], [JulSafeHarborCd], [AugSafeHarborCd], [SepSafeHarborCd], [OctSafeHarborCd], [NovSafeHarborCd], [DecSafeHarborCd], [CoveredIndividualInd], [CreateDate]) VALUES (2, N'1095-C', N'O', N'2014', NULL, NULL, NULL, N'4899f175-8c99-4c98-b486-93114f1c7304', 1, N'00-5234504', N'Amazon Information', NULL, N'6689 Willow Court', NULL, N'CA', NULL, N'90211', NULL, NULL, N'US', NULL, NULL, N'Rose', N'S.', N'Lincoln', NULL, N'555-987-6543', NULL, 3, N'Y', 455, N'Y', NULL, NULL, NULL, NULL, NULL, N'CEO', CAST(N'2015-01-29 00:00:00.000' AS DateTime), NULL, N'N', N'N', N'N', N'N', N'N', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', NULL, 312, 312, 315, 320, 322, 325, 329, 333, 341, 344, 361, 372, NULL, 351, 352, 358, 365, 369, 376, 372, 369, 366, 363, 377, 385, NULL, N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', NULL, NULL, NULL, NULL, NULL, NULL, N'B', N'B', N'B', N'B', N'B', N'B', N'B', 2, N'Wanda', N'S.', N'Antero', NULL, N'555-987-6543', N'400-00-1018', N'46789 Aspen Avenue', NULL, N'Wasco', N'OR   ', N'97065', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'1E', N'1E', N'1E', N'1E', N'1E', N'1E', N'1E', NULL, NULL, NULL, NULL, NULL, NULL, 148.0000, 148.0000, 148.0000, 148.0000, 148.0000, 148.0000, 148.0000, NULL, NULL, NULL, NULL, NULL, NULL, N'2C', N'2C', N'2C', N'2C', N'2C', N'2C', N'2C', NULL, CAST(N'2015-08-30 10:33:31.020' AS DateTime))
+INSERT [dbo].[Form1095] ([FormId], [FormType], [FormStatus], [FormYear], [IsCorrected], [IsVoid], [Org_FormId], [UserId], [EmployerId], [BusinessEIN], [BusinessNameLine1], [BusinessNameLine2], [AddressLine1], [AddressLine2], [CityNm], [USStateCd], [USZipCd], [USZiExtensionCd], [ForeignProvinceCd], [CountryCd], [CountryName], [ForeignPostalCd], [PersonFirstNm], [PersonMiddleNm], [PersonLastNm], [SuffixNm], [ContactPhoneNum], [IsGovEntity], [Forms1095CAttachedCnt], [AuthoritativeTransmittalInd], [TotalForm195CALEMemberCnt], [AggregatedGroupMemberInd], [QualifiedOfferMethodind], [QlfyOfferMethodTrnstReliefInd], [Section4980HReliefInd], [NinetyEightPctOfferMethodInd], [JuratSignaturePIN], [PersonTitleTxt], [SignatureDt], [All12MinEssentialCvrOffrInd], [JanMinEssentialCvrOffrInd], [FebMinEssentialCvrOffrInd], [MarMinEssentialCvrOffrInd], [AprMinEssentialCvrOffrInd], [MayMinEssentialCvrOffrInd], [JunMinEssentialCvrOffrInd], [JulMinEssentialCvrOffrInd], [AugMinEssentialCvrOffrInd], [SepMinEssentialCvrOffrInd], [OctMinEssentialCvrOffrInd], [NovMinEssentialCvrOffrInd], [DecMinEssentialCvrOffrInd], [All12ALEMemberFTECnt], [JanALEMemberFTECnt], [FebALEMemberFTECnt], [MarALEMemberFTECnt], [AprALEMemberFTECnt], [MayALEMemberFTECnt], [JunALEMemberFTECnt], [JulALEMemberFTECnt], [AugALEMemberFTECnt], [SepALEMemberFTECnt], [OctALEMemberFTECnt], [NovALEMemberFTECnt], [DecALEMemberFTECnt], [All12TotalEmployeeCnt], [JanTotalEmployeeCnt], [FebTotalEmployeeCnt], [MarTotalEmployeeCnt], [AprTotalEmployeeCnt], [MayTotalEmployeeCnt], [JunTotalEmployeeCnt], [JulTotalEmployeeCnt], [AugTotalEmployeeCnt], [SepTotalEmployeeCnt], [OctTotalEmployeeCnt], [NovTotalEmployeeCnt], [DecTotalEmployeeCnt], [All12AggregatedGroupInd], [JanAggregatedGroupInd], [FebAggregatedGroupInd], [MarAggregatedGroupInd], [AprAggregatedGroupInd], [MayAggregatedGroupInd], [JunAggregatedGroupInd], [JulAggregatedGroupInd], [AugAggregatedGroupInd], [SepAggregatedGroupInd], [OctAggregatedGroupInd], [NovAggregatedGroupInd], [DecAggregatedGroupInd], [All12ALESect4980HTrnstReliefCd], [JanALESect4980HTrnstReliefCd], [FebALESect4980HTrnstReliefCd], [MarALESect4980HTrnstReliefCd], [AprALESect4980HTrnstReliefCd], [MayALESect4980HTrnstReliefCd], [JunALESect4980HTrnstReliefCd], [JulALESect4980HTrnstReliefCd], [AugALESect4980HTrnstReliefCd], [SepALESect4980HTrnstReliefCd], [OctALESect4980HTrnstReliefCd], [NovALESect4980HTrnstReliefCd], [DecALESect4980HTrnstReliefCd], [EmployeeId], [EmployeeFirstNm], [EmployeeMiddleNm], [EmployeeLastNm], [EmployeeSuffixNm], [EmployeePhoneNum], [EmployeeSSN], [EmployeeAddressLine1], [EmployeeAddressLine2], [EmployeeCityNm], [EmployeeUSStateCd], [EmployeeUSZipCd], [EmployeeUSZiExtensionCd], [EmployeeForeignProvinceCd], [EmployeeCountryCd], [EmployeeCountryName], [EmployeeForeignPostalCd], [AnnualOfferOfCoverageCd], [JanOfferCd], [FebOfferCd], [MarOfferCd], [AprOfferCd], [MayOfferCd], [JunOfferCd], [JulOfferCd], [AugOfferCd], [SepOfferCd], [OctOfferCd], [NovOfferCd], [DecOfferCd], [AnnualShrLowestCostMPremAmt], [JanMPremAmt], [FebMPremAmt], [MarMPremAmt], [AprMPremAmt], [MayMPremAmt], [JunMPremAmt], [JulMPremAmt], [AugMPremAmt], [SepMPremAmt], [OctMPremAmt], [NovMPremAmt], [DecMPremAmt], [AnnualSafeHarborCd], [JanSafeHarborCd], [FebSafeHarborCd], [MarSafeHarborCd], [AprSafeHarborCd], [MaySafeHarborCd], [JunSafeHarborCd], [JulSafeHarborCd], [AugSafeHarborCd], [SepSafeHarborCd], [OctSafeHarborCd], [NovSafeHarborCd], [DecSafeHarborCd], [CoveredIndividualInd], [CreateDate]) VALUES (3, N'1095-C', N'O', N'2014', NULL, NULL, NULL, N'4899f175-8c99-4c98-b486-93114f1c7304', 1, N'00-5234504', N'Amazon Information', NULL, N'6689 Willow Court', NULL, N'CA', NULL, N'90211', NULL, NULL, N'US', NULL, NULL, N'Rose', N'S.', N'Lincoln', NULL, N'555-987-6543', NULL, 3, N'Y', 455, N'Y', NULL, NULL, NULL, NULL, NULL, N'CEO', CAST(N'2015-01-29 00:00:00.000' AS DateTime), NULL, N'N', N'N', N'N', N'N', N'N', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', NULL, 312, 312, 315, 320, 322, 325, 329, 333, 341, 344, 361, 372, NULL, 351, 352, 358, 365, 369, 376, 372, 369, 366, 363, 377, 385, NULL, N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', NULL, NULL, NULL, NULL, NULL, NULL, N'B', N'B', N'B', N'B', N'B', N'B', N'B', 3, N'Arthur', N'T.', N'Torreys', NULL, N'555-987-6543', N'400-00-1022', N'4375 Alder Lane', NULL, N'Kent', N'WA   ', N'98089', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'1D', N'1D', N'1D', N'1D', N'1D', N'1D', N'1D', NULL, NULL, NULL, NULL, NULL, NULL, 145.0000, 145.0000, 145.0000, 145.0000, 145.0000, 145.0000, 145.0000, NULL, NULL, NULL, NULL, NULL, NULL, N'2C', N'2C', N'2C', N'2C', N'2C', N'2C', N'2C', NULL, CAST(N'2015-08-30 10:33:31.020' AS DateTime))
+SET IDENTITY_INSERT [dbo].[Form1095] OFF
+SET IDENTITY_INSERT [dbo].[Form1095ALEMembers] ON 
+
+INSERT [dbo].[Form1095ALEMembers] ([ALAMemberId], [EmployerId], [UserId], [BusinessEIN], [BusinessNameLine1], [BusinessNameLine2], [CreateDate], [IsActive]) VALUES (1, 1, N'4899f175-8c99-4c98-b486-93114f1c7304', N'00-5234505', N'Mackenzie Inc', NULL, NULL, NULL)
+INSERT [dbo].[Form1095ALEMembers] ([ALAMemberId], [EmployerId], [UserId], [BusinessEIN], [BusinessNameLine1], [BusinessNameLine2], [CreateDate], [IsActive]) VALUES (2, 1, N'4899f175-8c99-4c98-b486-93114f1c7304', N'00-5234506', N'Rio Grande Co', NULL, NULL, NULL)
+INSERT [dbo].[Form1095ALEMembers] ([ALAMemberId], [EmployerId], [UserId], [BusinessEIN], [BusinessNameLine1], [BusinessNameLine2], [CreateDate], [IsActive]) VALUES (3, 1, N'4899f175-8c99-4c98-b486-93114f1c7304', N'00-5234507', N'Danube Information Inc ', NULL, NULL, NULL)
+INSERT [dbo].[Form1095ALEMembers] ([ALAMemberId], [EmployerId], [UserId], [BusinessEIN], [BusinessNameLine1], [BusinessNameLine2], [CreateDate], [IsActive]) VALUES (5, 1, N'4899f175-8c99-4c98-b486-93114f1c7304', N'00-5234508', N'Euphrates Limited', NULL, NULL, NULL)
+SET IDENTITY_INSERT [dbo].[Form1095ALEMembers] OFF
+SET IDENTITY_INSERT [dbo].[Form1095Individuals] ON 
+
+INSERT [dbo].[Form1095Individuals] ([FormIndvidualId], [EmployeeId], [UserId], [IndFirstName], [IndMiddleName], [IndLastName], [IndSuffixName], [IndSSN], [IndBirthDate], [CoveredAnnual], [CoveredM1], [CoveredM2], [CoveredM3], [CoveredM4], [CoveredM5], [CoveredM6], [CoveredM7], [CoveredM8], [CoveredM9], [CoveredM10], [CoveredM11], [CoveredM12], [CreateDate]) VALUES (1, 1, N'4899f175-8c99-4c98-b486-93114f1c7304', N'Terry', NULL, N'Grays', NULL, N'400-00-1026', NULL, N'Y', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[Form1095Individuals] ([FormIndvidualId], [EmployeeId], [UserId], [IndFirstName], [IndMiddleName], [IndLastName], [IndSuffixName], [IndSSN], [IndBirthDate], [CoveredAnnual], [CoveredM1], [CoveredM2], [CoveredM3], [CoveredM4], [CoveredM5], [CoveredM6], [CoveredM7], [CoveredM8], [CoveredM9], [CoveredM10], [CoveredM11], [CoveredM12], [CreateDate]) VALUES (2, 1, N'4899f175-8c99-4c98-b486-93114f1c7304', N'Terence', N'L.', N'Grays', NULL, NULL, CAST(N'1997-12-11' AS Date), N'Y', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL)
+INSERT [dbo].[Form1095Individuals] ([FormIndvidualId], [EmployeeId], [UserId], [IndFirstName], [IndMiddleName], [IndLastName], [IndSuffixName], [IndSSN], [IndBirthDate], [CoveredAnnual], [CoveredM1], [CoveredM2], [CoveredM3], [CoveredM4], [CoveredM5], [CoveredM6], [CoveredM7], [CoveredM8], [CoveredM9], [CoveredM10], [CoveredM11], [CoveredM12], [CreateDate]) VALUES (3, 2, N'4899f175-8c99-4c98-b486-93114f1c7304', N'Warner', N'S.', N'Antero', NULL, N'400-00-1028', NULL, NULL, NULL, NULL, NULL, NULL, NULL, N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', NULL)
+INSERT [dbo].[Form1095Individuals] ([FormIndvidualId], [EmployeeId], [UserId], [IndFirstName], [IndMiddleName], [IndLastName], [IndSuffixName], [IndSSN], [IndBirthDate], [CoveredAnnual], [CoveredM1], [CoveredM2], [CoveredM3], [CoveredM4], [CoveredM5], [CoveredM6], [CoveredM7], [CoveredM8], [CoveredM9], [CoveredM10], [CoveredM11], [CoveredM12], [CreateDate]) VALUES (4, 2, N'4899f175-8c99-4c98-b486-93114f1c7304', N'Willie', N'M.', N'Antero', NULL, NULL, CAST(N'2009-10-29' AS Date), NULL, NULL, NULL, NULL, NULL, NULL, N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', N'Y', NULL)
+SET IDENTITY_INSERT [dbo].[Form1095Individuals] OFF
